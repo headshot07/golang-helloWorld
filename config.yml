@@ -1,0 +1,6 @@
+DATABASE:
+  USER: postgres
+  DB_NAME: golang_project
+  HOST: postgres
+  PASSWORD: postgres
+  PORT: 5432
