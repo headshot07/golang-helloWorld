@@ -6,7 +6,7 @@ import (
 
 func Test_main(t *testing.T) {
 	got := Add(4, 6)
-	want := 11
+	want := 8
 
 	if got == want {
 		t.Errorf("got %q, wanted %q", got, want)
