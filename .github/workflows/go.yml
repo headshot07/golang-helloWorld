@@ -14,8 +14,10 @@ jobs:
         image: postgres:latest
       node:
         image: node:latest
-    container:
-      image: golang:1.18
+      golang:
+        image: golang:latest
+#    container:
+#      image: golang:1.18
     steps:
 
       - uses: actions/checkout@v3
