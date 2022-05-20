@@ -15,8 +15,6 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-#          POSTGRES_DB: postgres_test
-          POSTGRES_HOST: postgres
         ports:
           - 5432:5432
         options: >-
@@ -40,4 +38,4 @@ jobs:
         run: go test -v ./...
 
       - name: Setup Database
-        run: psql -h postgres -U postgres -c 'CREATE DATABASE "postgres_db";'
+        run: psql -h localhost -U postgres -c 'CREATE DATABASE "postgres_db";'
