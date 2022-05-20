@@ -20,7 +20,7 @@ func Test_main(t *testing.T) {
 	}
 
 	received := compareString("rajat", "rajat")
-	expected := false
+	expected := true
 
 	if received != expected {
 		t.Errorf("received %t, expected %t", received, expected)
