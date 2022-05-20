@@ -34,6 +34,13 @@ func Add(x, y int) (res int) {
 	return x + y
 }
 
+func compareString(str1 string, str2 string) bool {
+	if str1 == str2 {
+		return true
+	}
+	return false
+}
+
 func Multiply(a, b int) int {
 	return a * b
 }

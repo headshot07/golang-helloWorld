@@ -19,4 +19,11 @@ func Test_main(t *testing.T) {
 		t.Errorf("got %d, wanted %d", got, want)
 	}
 
+	received := compareString("rajat", "sanjay")
+	expected := false
+
+	if received != expected {
+		t.Errorf("received %t, expected %t", received, expected)
+	}
+
 }
