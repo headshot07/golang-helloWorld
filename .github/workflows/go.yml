@@ -38,4 +38,4 @@ jobs:
         run: go test -v ./...
 
       - name: Setup Database
-        run: make migrate-up
+        run: psql -h localhost -U postgres password=postgres -c 'CREATE DATABASE "postgres_dk";'
