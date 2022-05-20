@@ -1,14 +1,14 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test_main(t *testing.T) {
-	var tests []struct {
-		name string
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			main()
-		})
+	got := Add(4, 6)
+	want := 10
+
+	if got == want {
+		t.Errorf("got %q, wanted %q", got, want)
 	}
 }

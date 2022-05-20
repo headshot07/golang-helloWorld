@@ -4,3 +4,5 @@ DATABASE:
   HOST: postgres
   PASSWORD: postgres
   PORT: 5432
+LOG:
+  LEVEL: debug
