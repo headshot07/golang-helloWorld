@@ -12,8 +12,7 @@ jobs:
     services:
       postgres:
         image: postgres:latest
-      node:
-        image: node:latest
+
       golang:
         image: golang:latest
 #    container:
@@ -27,3 +26,6 @@ jobs:
 
       - name: Test
         run: go test -v ./...
+
+      - name: Setup Database
+        run: psql -h postgres -U postgres -c 'CREATE DATABASE "postgres_db";'
