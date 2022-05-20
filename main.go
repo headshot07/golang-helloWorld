@@ -33,6 +33,11 @@ func insertIntoDatabase(db *sql.DB, userName string) {
 func Add(x, y int) (res int) {
 	return x + y
 }
+
+func Multiply(a, b int) int {
+	return a * b
+}
+
 func main() {
 	config.InitConfig()
 	config.InitConfiguration()
