@@ -10,7 +10,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     container:
-      image: docker-postgres
+      image: golang:latest
     steps:
 
       - uses: actions/checkout@v3
