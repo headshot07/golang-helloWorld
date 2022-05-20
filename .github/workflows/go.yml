@@ -9,6 +9,11 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+      node:
+        image: node:latest
     container:
       image: golang:1.18
     steps:
