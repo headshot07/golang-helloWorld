@@ -38,4 +38,4 @@ jobs:
         run: go test -v ./...
 
       - name: Setup Database
-        run: psql -h localhost -U postgres PGPASSWORD=postgres postgres -c 'CREATE DATABASE "postgres_db";'
+        run: psql -h localhost -U postgres -c 'CREATE DATABASE "postgres_db";'
