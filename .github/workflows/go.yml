@@ -39,4 +39,4 @@ jobs:
         run: go test -v ./...
 
       - name: Setup Database
-        run: psql -h localhost -U postgres password=postgres -c 'CREATE TABLE "users";'
+        run: psql -h localhost -U postgres password=postgres -c 'CREATE TABLE users ( name varchar );'
