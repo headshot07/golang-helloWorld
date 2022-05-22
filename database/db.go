@@ -10,7 +10,7 @@ var db *sql.DB
 
 func ConnectToDatabase() {
 	configuration := config.GetConfig()
-	postgresConnect := fmt.Sprintf("user=%s dbname=%s password=%s sslmode=disable", configuration.Database.User, configuration.Database.Password, configuration.Database.DB_Name)
+	postgresConnect := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", configuration.Database.User, configuration.Database.Password, configuration.Database.DB_Name)
 	database, err := sql.Open("postgres", postgresConnect)
 	if err != nil {
 		fmt.Println("Error")
