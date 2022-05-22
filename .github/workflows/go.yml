@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     services:
       postgres:
         image: postgres:latest
@@ -31,7 +31,9 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-      - uses: golang-migrate/migrate
+#      - uses: golang-migrate/migrate
+      - name: Install Golang-Migrate
+        run: brew install golang-migrate
 
 #      - name: Build
 #        run: go build -v ./...
