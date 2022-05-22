@@ -39,6 +39,7 @@ jobs:
         run: make migrate-up
       - name: Test
         run: go test -v ./...
+
 #      - name: Create Database
 #        run: make create-database
 #      - name: Setup Database
