@@ -30,14 +30,14 @@ jobs:
 #      image: golang:1.18
     steps:
       - uses: actions/checkout@v3
-      - uses: golang-migrate/migrate@v4
+#      - uses: golang-migrate/migrate@v4
 #      - name: Install Golang-Migrate
 #        run: brew install golang-migrate
 
 #      - name: Build
 #        run: go build -v ./...
-#      - name: Install Golang-Migrate
-#        run: go get github.com/golang-migrate/migrate/v4
+      - name: Install Golang-Migrate
+        run: go get github.com/golang-migrate/migrate/v4
       - name: Create Table Users
         run: make migrate-up
       - name: Test
