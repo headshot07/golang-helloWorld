@@ -31,7 +31,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-#      - uses: golang-migrate/migrate
       - name: Install Golang-Migrate
         run: brew install golang-migrate
 
