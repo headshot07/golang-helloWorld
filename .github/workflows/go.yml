@@ -30,7 +30,7 @@ jobs:
 #      image: golang:1.18
     steps:
       - uses: actions/checkout@v3
-      - uses: github.com/golang-migrate/migrate/v4
+      - uses: golang-migrate@migrate
 #      - name: Install Golang-Migrate
 #        run: brew install golang-migrate
 
