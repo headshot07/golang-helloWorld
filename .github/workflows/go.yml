@@ -15,7 +15,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres_db
+          POSTGRES_DB: golang_project
         ports:
           - 5432:5432
         options: >-
@@ -35,11 +35,12 @@ jobs:
 
 #      - name: Build
 #        run: go build -v ./...
-
+      - name: Create Table Users
+        run: make migrate-up
       - name: Test
         run: go test -v ./...
-      - name: Create Database
-        run: make create-database
+#      - name: Create Database
+#        run: make create-database
 #      - name: Setup Database
 #        run: psql -h localhost -U postgres password=postgres -c 'CREATE DATABASE "postgres_dk";'
 #

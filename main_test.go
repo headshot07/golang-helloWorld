@@ -30,6 +30,6 @@ func Test_main(t *testing.T) {
 	config.InitConfig()
 	config.InitConfiguration()
 	database.ConnectToDatabase()
-	insertIntoDatabase(database.Get(), "Sanjay Singh")
+	insertIntoDatabase(database.Get(), "Sanjay Sin")
 
 }
