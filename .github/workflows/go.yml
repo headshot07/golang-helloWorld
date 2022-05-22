@@ -31,12 +31,17 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
+#      - uses: golang-migrate/migrate
 
 #      - name: Build
 #        run: go build -v ./...
 
       - name: Test
         run: go test -v ./...
-
-      - name: Setup Database
-        run: psql -h localhost -U postgres password=postgres -c 'CREATE TABLE users ( name varchar );'
+      - name: Create Database
+        run: make create-database
+#      - name: Setup Database
+#        run: psql -h localhost -U postgres password=postgres -c 'CREATE DATABASE "postgres_dk";'
+#
+#      - name: Connect to database and create table
+#        run: psql -h localhost -U postgres password=postgres -c 'CREATE TABLE users ( name varchar );'
