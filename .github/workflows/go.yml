@@ -36,8 +36,11 @@ jobs:
 
 #      - name: Build
 #        run: go build -v ./...
-      - name: Install Golang-Migrate
-        run: go get github.com/golang-migrate/migrate/v4
+      - name: Install golang-migrate
+        run: |
+          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
+          sudo mv migrate.linux-amd64 /usr/bin/migrate
+          which migrate
       - name: Create Table Users
         run: make migrate-up
       - name: Test
