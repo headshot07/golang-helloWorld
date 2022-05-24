@@ -44,7 +44,7 @@ jobs:
       - name: Create Table Users
         run: make migrate-up
       - name: Test
-        run: go test ./...
+        run: go test -v ./...
 
 #      - name: Create Database
 #        run: make create-database

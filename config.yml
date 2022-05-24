@@ -6,4 +6,3 @@ DATABASE:
   PORT: 5432
 LOG:
   LEVEL: debug
-#PASS_CON=234

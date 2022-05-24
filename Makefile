@@ -1,11 +1,10 @@
-ENV := $(PWD)/.env
 CONFIG := $(PWD)/config.yml
-include $(ENV)
+#include $(PWD)/.env
 include $(CONFIG)
 hello := "Hello"
 
 print-hello:
-	@echo `pwd` $(PASS) $(CONFIG)$(PASS_CON)
+	@echo `pwd` $(PASS) $(PASS_CON) $(hello)
 migrate-up:
 	migrate -path database/migration -database "postgresql://postgres:postgres@localhost:5432/golang_project?sslmode=disable" -verbose up
 migrate-down:
