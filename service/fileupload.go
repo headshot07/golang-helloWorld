@@ -28,7 +28,7 @@ func getClient(config *oauth2.Config) *http.Client {
 
 func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 	authURL := config.AuthCodeURL("state-token", oauth2.AccessTypeOffline)
-	fmt.Printf("Go to the following url", authURL)
+	fmt.Printf("Go to the following url %v", authURL)
 
 	var authCode string
 	if _, err := fmt.Scan(&authCode); err != nil {
