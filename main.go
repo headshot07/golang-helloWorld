@@ -11,6 +11,9 @@ import (
 	"net/http"
 )
 
+func hello() {
+
+}
 func httpServer() {
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
