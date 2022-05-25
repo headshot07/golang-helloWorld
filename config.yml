@@ -1,8 +1,0 @@
-DATABASE:
-  USER: postgres
-  DB_NAME: golang_project
-  HOST: localhost
-  PASSWORD: postgres
-  PORT: 5432
-LOG:
-  LEVEL: debug
