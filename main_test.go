@@ -1,8 +1,6 @@
 package main
 
 import (
-	"helloWorld/config"
-	"helloWorld/database"
 	"testing"
 )
 
@@ -27,8 +25,8 @@ func Test_main(t *testing.T) {
 	if received != expected {
 		t.Errorf("received %t, expected %t", received, expected)
 	}
-	config.InitConfig()
-	config.InitConfiguration()
-	database.ConnectToDatabase()
-	insertIntoDatabase(database.Get(), "Sanjay Singh")
+	//config.InitConfig()
+	//config.InitConfiguration()
+	//database.ConnectToDatabase()
+	//insertIntoDatabase(database.Get(), "Sanjay Singh")
 }
