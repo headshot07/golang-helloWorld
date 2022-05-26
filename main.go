@@ -28,7 +28,7 @@ var rootCmd = &cobra.Command{
 }
 
 var migrateCommand = &cobra.Command{
-	Use:   "migrate",
+	Use:   "migrate-up",
 	Short: "It will run all the migrations",
 	Long:  "It will run all the migrations from the CLI",
 	Run: func(cmd *cobra.Command, args []string) {
