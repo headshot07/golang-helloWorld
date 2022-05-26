@@ -44,7 +44,7 @@ jobs:
       - name: Build
         run: go build -v ./...
       - name: Run migrations
-        run: ${GITHUB_WORKSPACE} migrate
+        run: gh migrate
       - name: Test
         run: go test -v ./...
 
