@@ -112,6 +112,7 @@ func insertUser(db *sql.DB, name string) {
 func deleteUser(db *sql.DB, username string) {
 	fmt.Println("User Name", username)
 	sqlStatement := `DELETE FROM users WHERE name=($1);`
+
 	_, err := db.Exec(sqlStatement, username)
 	if err != nil {
 		fmt.Println("Error In Database Delete", err)
