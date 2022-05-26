@@ -41,8 +41,10 @@ jobs:
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
           sudo mv migrate.linux-amd64 /usr/bin/migrate
           which migrate
-      - name: Create Table Users
-        run: make migrate-up
+      - name: Build
+        run: go build -v ./...
+      - name: Run migrations
+        run: ./helloWorld migrate-up
       - name: Test
         run: go test -v ./...
 

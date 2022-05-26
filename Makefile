@@ -5,4 +5,4 @@ migrate-down:
 create-database:
 	psql -h localhost -U postgres password=postgres -c 'CREATE DATABASE golang_project;'
 postgres-docker:
-	docker run --name golang-postgres -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -e PGDATA=/var/lib/postgresql/data/pgdata -v ~/data:/var/lib/postgresql/data -d postgres
+	docker run --name golang-postgres -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -e PGDATA=/var/lib/postgresql/data/pgdata -d postgres
