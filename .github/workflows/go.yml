@@ -45,7 +45,6 @@ jobs:
         run: go build -v ./...
       - name: Run migrations
         run: ./helloWorld migrate
-        working-directory: ./helloWorld
       - name: Test
         run: go test -v ./...
 
