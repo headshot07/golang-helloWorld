@@ -44,7 +44,11 @@ jobs:
       - name: Build
         run: go build -v ./...
       - name: Run migrations
+<<<<<<< HEAD
         run: . help
+=======
+        run: ./helloWorld migrate
+>>>>>>> a680f0eb252d211ccb4f9f30ff931f14d57ba72d
       - name: Test
         run: go test -v ./...
 
