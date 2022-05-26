@@ -31,6 +31,7 @@ func InitConfig() {
 func GetConfig() *Configuration {
 	return configurations
 }
+
 func InitConfiguration() {
 	viper.SetConfigName("config.yml")
 	viper.AddConfigPath(".")
@@ -39,6 +40,7 @@ func InitConfiguration() {
 	if err := viper.ReadInConfig(); err != nil {
 		panic("Error reading config file " + err.Error())
 	}
+
 	err := viper.Unmarshal(&configurations)
 	fmt.Println("Configuration", configurations)
 	if err != nil {

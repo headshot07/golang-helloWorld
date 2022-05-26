@@ -3,6 +3,6 @@ DATABASE:
   DB_NAME: golang_project
   HOST: postgres
   PASSWORD: postgres
-  PORT: 5432
+  PORT:
 LOG:
   LEVEL: debug
