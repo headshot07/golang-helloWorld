@@ -180,4 +180,5 @@ func main() {
 	config.InitializeLogger()
 	httpServer()
 	database.CloseDatabase()
+	fmt.Println("Testing...")
 }

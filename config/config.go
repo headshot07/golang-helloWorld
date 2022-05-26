@@ -26,8 +26,8 @@ type LoggingConfiguration struct {
 
 func InitConfig() {
 	configurations = new(Configuration)
-
 }
+
 func GetConfig() *Configuration {
 	return configurations
 }
