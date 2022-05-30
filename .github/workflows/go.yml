@@ -60,7 +60,7 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
       - name: Show Ruby Version
-        run: gcloud compute 35.200.199.253 --command="sudo -v"
+        run: gcloud compute ssh 35.200.199.253 --command="sudo -v"
 #      - name: Reload nginx
 #        run: gcloud compute ssh 35.200.199.253 --command="ruby -v"
 #      - name: Create Database
