@@ -61,8 +61,8 @@ jobs:
         run: echo ${{ secrets.GCP_PROJECT }}
       - name: Add SSH Key To Known Host
         env:
-          SSH_PUBLIC: ${{ secrets.SSH_PUBLIC }}
-          SSH_PRIVATE: ${{ secrets.SSH_PRIVATE }}
+          SSH_PUBLIC: ${{secrets.SSH_PUBLIC}}
+          SSH_PRIVATE: ${{secrets.SSH_PRIVATE}}
           HOST_SSH: ${{ secrets.HOST_SSH }}
         run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub &&  echo $SSH_PRIVATE > id_rsa && echo $HOST_SSH > known_hosts && chmod 400 ~/.ssh/id_rsa
 #        run: cd .ssh && echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub && echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
