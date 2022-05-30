@@ -76,6 +76,7 @@ jobs:
       - name: Show Ruby Version
         run: ssh -tt sanjay@35.200.199.253
 
+
 #      - name: Reload nginx
 #        run: gcloud compute ssh 35.200.199.253 --command="ruby -v"
 #      - name: Create Database
