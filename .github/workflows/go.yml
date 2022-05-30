@@ -63,7 +63,7 @@ jobs:
         env:
           SSH_PUBLIC: ${{ secrets.SSH_PUBLIC }}
           SSH_PRIVATE: ${{ secrets.SSH_PRIVATE }}
-        run: mkdir ~/.ssh && cd ~/.ssh && touch hello.txt && ls && echo $SSH_PUBLIC > id_rsa.pub &&  echo $SSH_PRIVATE > id_rsa
+        run: mkdir ~/.ssh && cd ~/.ssh && touch hello.txt && ls && echo $SSH_PUBLIC > id_rsa.pub &&  echo $SSH_PRIVATE > id_rsa && ls
 #        run: cd .ssh && echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub && echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
 #      - name: Add SSH Key To Known Host
 #        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
