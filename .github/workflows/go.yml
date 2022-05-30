@@ -59,6 +59,12 @@ jobs:
           export_default_credentials: true
       - name: Use gcloud CLI
         run: gcloud info
+      - name: Add SSH Key To Known Host
+        run: echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
+      - name: Add SSH Key To Known Host
+        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
+      - name: Check Key
+        run: cat .ssh/id_rsa
       - name: Show Ruby Version
         run: gcloud compute ssh 35.200.199.253 --command="sudo -v"
 #      - name: Reload nginx
