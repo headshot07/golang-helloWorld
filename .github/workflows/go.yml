@@ -71,7 +71,7 @@ jobs:
 #        run: echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
 
       - name: Check Key
-        run: cat ~/.ssh/google_compute_engine.pub
+        run: gcloud projects list
       - name: Show Ruby Version
         run: gcloud compute ssh p-timetracker-5 --zone "asia-south1-a" --command="sudo -v"
 #      - name: Reload nginx
