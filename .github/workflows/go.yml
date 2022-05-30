@@ -59,6 +59,8 @@ jobs:
           export_default_credentials: true
       - name: Use gcloud CLI
         run: gcloud info
+      - name: Echo jnd
+        run: echo ${{ secrets.SSH_PUBLIC }}
       - name: Add SSH Key To Known Host
         env:
           SSH_PUBLIC: ${{ secrets.SSH_PUBLIC }}
