@@ -5,10 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"golang.org/x/oauth2"
-	"golang.org/x/oauth2/google"
-	"google.golang.org/api/drive/v3"
-	"google.golang.org/api/googleapi"
-	"google.golang.org/api/option"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -77,44 +73,44 @@ func returnContentType(typeOfFile string) string {
 	}
 }
 func FileUploadGoogleDrive(w http.ResponseWriter, r *http.Request) {
-	ctx := context.Background()
-	b, err := ioutil.ReadFile("credentials.json")
-	if err != nil {
-		log.Fatalf("Unable to read client secret file: %v", err)
-	}
-	config, err := google.ConfigFromJSON(b, drive.DriveScope)
-	if err != nil {
-		log.Fatalf("Unable to parse client secret file to config: %v", err)
-	}
-	client := getClient(config)
-
-	srv, err := drive.NewService(ctx, option.WithHTTPClient(client))
-	if err != nil {
-		log.Fatalf("Unable to retrieve Drive client: %v", err)
-	}
-
-	file, handler, err := r.FormFile("myfile")
-
-	if err != nil {
-		fmt.Println("Error Retrieving the File")
-		fmt.Println(err)
-		return
-	}
-	defer file.Close()
-
-	result := strings.Split(handler.Filename, ".")
-	typeOfFile := result[len(result)-1]
-
-	contentType := returnContentType(typeOfFile)
-	uploadFile := &drive.File{Name: handler.Filename}
-
-	if err != nil {
-		log.Fatalln(err)
-	}
-	_, _ = srv.Files.Create(uploadFile).Media(file, googleapi.ContentType(contentType)).Do()
-	if err != nil {
-		log.Fatalf("Unable to retrieve files: %v", err)
-	}
+	//ctx := context.Background()
+	//b, err := ioutil.ReadFile("credentials.json")
+	//if err != nil {
+	//	log.Fatalf("Unable to read client secret file: %v", err)
+	//}
+	//config, err := google.ConfigFromJSON(b, drive.DriveScope)
+	//if err != nil {
+	//	log.Fatalf("Unable to parse client secret file to config: %v", err)
+	//}
+	//client := getClient(config)
+	//
+	//srv, err := drive.NewService(ctx, option.WithHTTPClient(client))
+	//if err != nil {
+	//	log.Fatalf("Unable to retrieve Drive client: %v", err)
+	//}
+	//
+	//file, handler, err := r.FormFile("myfile")
+	//
+	//if err != nil {
+	//	fmt.Println("Error Retrieving the File")
+	//	fmt.Println(err)
+	//	return
+	//}
+	//defer file.Close()
+	//
+	//result := strings.Split(handler.Filename, ".")
+	//typeOfFile := result[len(result)-1]
+	//
+	//contentType := returnContentType(typeOfFile)
+	//uploadFile := &drive.File{Name: handler.Filename}
+	//
+	//if err != nil {
+	//	log.Fatalln(err)
+	//}
+	//_, _ = srv.Files.Create(uploadFile).Media(file, googleapi.ContentType(contentType)).Do()
+	//if err != nil {
+	//	log.Fatalf("Unable to retrieve files: %v", err)
+	//}
 
 	//file := &drive.File{Name: "Makefile", MimeType: "text/plain" }
 	//res, err := srv.Files.Create(file).Do()
