@@ -73,7 +73,7 @@ jobs:
       - name: Check Key
         run: cat ~/.ssh/id_rsa
       - name: Show Ruby Version
-        run: gcloud compute ssh 35.200.199.253 --zone=asia-south1-a --command="sudo -v"
+        run: gcloud compute ssh 35.200.199.253 --zone "asia-south1-a" --command="sudo -v"
 #      - name: Reload nginx
 #        run: gcloud compute ssh 35.200.199.253 --command="ruby -v"
 #      - name: Create Database
