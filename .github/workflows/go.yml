@@ -61,7 +61,7 @@ jobs:
         run: gcloud info
       - name: Add SSH Key To Known Host
         run: cd .ssh && echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub && echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
-      - name: Add SSH Key To Known Host
+#      - name: Add SSH Key To Known Host
 #        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
 #      - name: Add SSH Key To Known Host
 #        run: echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
