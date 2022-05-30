@@ -68,7 +68,7 @@ jobs:
 #        run: echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
 
       - name: Check Key
-        run: cat .ssh/id_rsa
+        run: cat ~/.ssh/id_rsa
       - name: Show Ruby Version
         run: gcloud compute ssh 35.200.199.253 --command="sudo -v"
 #      - name: Reload nginx
