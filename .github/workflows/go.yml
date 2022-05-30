@@ -63,7 +63,7 @@ jobs:
         env:
           SSH_PUBLIC: ${{ secrets.SSH_PUBLIC }}
           SSH_PRIVATE: ${{ secrets.SSH_PRIVATE }}
-        run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > google_compute_engine.pub &&  echo $SSH_PRIVATE > google_compute_engine && touch hello.txt && ls
+        run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub &&  echo $SSH_PRIVATE > id_rsa && touch hello.txt && ls
 #        run: cd .ssh && echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub && echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
 #      - name: Add SSH Key To Known Host
 #        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
@@ -73,7 +73,7 @@ jobs:
       - name: Check Key
         run: gcloud projects list
       - name: Show Ruby Version
-        run: gcloud compute ssh p-timetracker-5 --zone "asia-south1-a" --command="sudo -v"
+        run: ssh 35.200.199.253
 #      - name: Reload nginx
 #        run: gcloud compute ssh 35.200.199.253 --command="ruby -v"
 #      - name: Create Database
