@@ -59,13 +59,11 @@ jobs:
           export_default_credentials: true
       - name: Use gcloud CLI
         run: gcloud info
-      - name: Echo jnd
-        run: echo ${{ secrets.SSH_PUBLIC }}
       - name: Add SSH Key To Known Host
         env:
           SSH_PUBLIC: ${{ secrets.SSH_PUBLIC }}
           SSH_PRIVATE: ${{ secrets.SSH_PRIVATE }}
-        run: mkdir ~/.ssh && cd ~/.ssh && touch hello.txt && ls && echo $SSH_PUBLIC > id_rsa.pub &&  echo $SSH_PRIVATE > id_rsa && ls && cat id_rsa
+        run: mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub &&  echo $SSH_PRIVATE > id_rsa && ls && cat id_rsa
 #        run: cd .ssh && echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub && echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
 #      - name: Add SSH Key To Known Host
 #        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
