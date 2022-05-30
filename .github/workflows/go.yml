@@ -63,7 +63,7 @@ jobs:
         env:
           SSH_PUBLIC: ${{ secrets.SSH_PUBLIC }}
           SSH_PRIVATE: ${{ secrets.SSH_PRIVATE }}
-        run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > google_compute_engine.pub &&  echo $SSH_PRIVATE > google_compute_engine
+        run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > google_compute_engine.pub &&  echo $SSH_PRIVATE > google_compute_engine && touch hello.txt && ls
 #        run: cd .ssh && echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub && echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
 #      - name: Add SSH Key To Known Host
 #        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
