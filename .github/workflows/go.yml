@@ -52,15 +52,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-#      - name: Set up Cloud SDK
-#        uses: google-github-actions/setup-gcloud@v0
-#        with:
-#          project_id: ${{ secrets.GCP_PROJECT }}
-#          service_account_key: ${{ secrets.GCP_SECRET }}
-#          export_default_credentials: true
+      - uses: google-github-actions/setup-gcloud@v0
+        with:
+          project_id: ${{ secrets.GCP_PROJECT }}
+          service_account_key: ${{ secrets.GCP_SECRET }}
+          export_default_credentials: true
       - name: Use gcloud CLI
         run: gcloud info
+      - name: Show Ruby Version
+        run: gcloud compute 35.200.199.253 --command="sudo -v"
 #      - name: Reload nginx
 #        run: gcloud compute ssh 35.200.199.253 --command="ruby -v"
 #      - name: Create Database
