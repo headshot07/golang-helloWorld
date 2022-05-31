@@ -64,5 +64,7 @@ jobs:
         run: scp helloWorld sanjay@35.200.199.253:/home/sanjay/helloWorld
       - name: Connect to Time Tracker
         run: ssh sanjay@35.200.199.253
+      - name: Run The Binary
+        run: ./helloWorld
       - name: Check Ruby Version
         run: ruby -v
