@@ -59,7 +59,7 @@ jobs:
           SSH_PUBLIC: ${{secrets.SSH_PUBLIC}}
           SSH_PRIVATE: ${{secrets.SSH_PRIVATE}}
           HOST_SSH: ${{ secrets.HOST_SSH }}
-        run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub && echo "${{secrets.SSH_PRIVATE}}" > id_rsa && echo $HOST_SSH > known_hosts && chmod 400 ~/.ssh/id_rsa
+        run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub && echo "${{secrets.SSH_PRIVATE}}" > id_rsa  && chmod 400 ~/.ssh/id_rsa
 #      - name: Check Projects List
 #        run: gcloud projects list
       - name: Connect to Time Tracker
