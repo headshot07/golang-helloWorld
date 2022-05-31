@@ -76,6 +76,6 @@ jobs:
       - name: Run The Binary
         run: ./helloWorld &
       - name: Run The Binary
-        run: curl http://localhost:8080/hello
+        run: curl http://localhost:9000/hello
       - name: Check Ruby Version
         run: ruby -v
