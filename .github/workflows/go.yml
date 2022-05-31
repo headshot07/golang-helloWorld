@@ -73,7 +73,7 @@ jobs:
       - name: Check Key
         run: gcloud projects list
       - name: Show Ruby Version
-        run: ssh -tt sanjay@35.200.199.253
+        run: ssh -tt sanjay@35.200.199.253 && ruby -v && exit
 
 
 
