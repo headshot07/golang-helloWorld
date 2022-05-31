@@ -38,6 +38,8 @@ jobs:
           which migrate
       - name: Build
         run: go build -v ./...
+      - name: See Binary
+        run: ls
       - name: Run migrations
         run: make migrate-up
       - name: Test
