@@ -47,18 +47,18 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: my-artifact
-          path: ./helloWorld
+          path: helloWorld
 
   create-vm:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - uses: actions/checkout@v2
-#      - uses: actions/download-artifact@master
-#        with:
-#          name: my-artifact
-      - name: Build
-        run: go build .
+      - uses: actions/download-artifact@master
+        with:
+          name: my-artifact
+#      - name: Build
+#        run: go build .
       - name: See The Binary
         run: ls
       - name: Add SSH Key To Runner
