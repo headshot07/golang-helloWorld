@@ -54,11 +54,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: google-github-actions/setup-gcloud@v0
-        with:
-          project_id: ${{ secrets.GCP_PROJECT }}
-          service_account_key: ${{ secrets.GCP_SECRET }}
-          export_default_credentials: true
       - uses: actions/checkout@v2
       - name: Build
         run: go build .
@@ -75,7 +70,10 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ls ~/.ssh
       - name: Connect to Instance
-        run: ssh sanjay@35.200.199.253
+        run: |
+          stat ~/.ssh/id_rsa
+          file ~/.ssh/id_rsa
+          ssh sanjay@35.200.199.253
 
 #  create-vm:
 #    runs-on: ubuntu-latest
