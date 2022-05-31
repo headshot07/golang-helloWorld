@@ -63,7 +63,7 @@ jobs:
       - name: Check Projects List
         run: gcloud projects list
       - name: Connect to Time Tracker
-        run: ssh -tt sanjay@35.200.199.253
+        run: ssh sanjay@35.200.199.253
       - name: Check Ruby Version
         run: ruby -v
 
