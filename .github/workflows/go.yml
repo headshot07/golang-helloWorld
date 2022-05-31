@@ -67,6 +67,8 @@ jobs:
       - name: Connect to Time Tracker
         run: ssh sanjay@35.200.199.253
       - name: Run The Binary
-        run: ./helloWorld
+        run: ./helloWorld &
+      - name: Run The Binary
+        run: curl http://localhost:8080/hello
       - name: Check Ruby Version
         run: ruby -v
