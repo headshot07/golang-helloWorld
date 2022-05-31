@@ -48,34 +48,55 @@ jobs:
         with:
           name: my-artifact
           path: helloWorld
-
-  create-vm:
+  deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - uses: actions/checkout@v2
-#      - uses: actions/download-artifact@master
-#        with:
-#          name: my-artifact
       - name: Build
         run: go build .
-      - name: See The Binary
-        run: ls
       - name: Add SSH Key To Runner
         env:
           SSH_PUBLIC: ${{secrets.SSH_PUBLIC}}
           SSH_PRIVATE: ${{secrets.SSH_PRIVATE}}
-          HOST_SSH: ${{ secrets.HOST_SSH }}
-        run: mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub && echo "${{secrets.SSH_PRIVATE}}" > id_rsa && echo $HOST_SSH > known_hosts && chmod 400 ~/.ssh/id_rsa
-#      - name: Check Projects List
-#        run: gcloud projects list
-      - name: Move File to Remote
-        run: scp helloWorld sanjay@35.200.199.253:/home/sanjay/helloWorld
-      - name: Connect to Time Tracker
+          SSH_HOST: ${{secrets.HOST_SSH}}
+        run: |
+          mkdir ~/.ssh
+          echo $SSH_PUBLIC > ~/.ssh/id_rsa.pub
+          echo "${{secrets.SSH_PRIVATE}}" > ~/.ssh/id_rsa
+          echo $SSH_HOST > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_rsa
+          ls ~/.ssh
+      - name: Connect to Instance
         run: ssh sanjay@35.200.199.253
-      - name: Run The Binary
-        run: ./helloWorld &
-      - name: Run The Binary
-        run: curl http://localhost:9000/hello
-      - name: Check Ruby Version
-        run: ruby -v
+
+#  create-vm:
+#    runs-on: ubuntu-latest
+#    needs: build
+#    steps:
+#      - uses: actions/checkout@v2
+##      - uses: actions/download-artifact@master
+##        with:
+##          name: my-artifact
+#      - name: Build
+#        run: go build .
+#      - name: See The Binary
+#        run: ls
+#      - name: Add SSH Key To Runner
+#        env:
+#          SSH_PUBLIC: ${{secrets.SSH_PUBLIC}}
+#          SSH_PRIVATE: ${{secrets.SSH_PRIVATE}}
+#          HOST_SSH: ${{ secrets.HOST_SSH }}
+#        run: mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub && echo "${{secrets.SSH_PRIVATE}}" > id_rsa && echo $HOST_SSH > known_hosts && chmod 400 ~/.ssh/id_rsa
+##      - name: Check Projects List
+##        run: gcloud projects list
+#      - name: Move File to Remote
+#        run: scp helloWorld sanjay@35.200.199.253:/home/sanjay/helloWorld
+#      - name: Connect to Time Tracker
+#        run: ssh sanjay@35.200.199.253
+#      - name: Run The Binary
+#        run: ./helloWorld &
+#      - name: Run The Binary
+#        run: curl http://localhost:9000/hello
+#      - name: Check Ruby Version
+#        run: ruby -v
