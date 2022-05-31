@@ -26,13 +26,8 @@ jobs:
 
       golang:
         image: golang:latest
-#    container:
-#      image: golang:1.18
     steps:
       - uses: actions/checkout@v3
-#      - uses: golang-migrate/migrate@v4
-#      - name: Install Golang-Migrate
-#        run: brew install golang-migrate
 
 #      - name: Build
 #        run: go build -v ./...
@@ -65,24 +60,7 @@ jobs:
           SSH_PRIVATE: ${{secrets.SSH_PRIVATE}}
           HOST_SSH: ${{ secrets.HOST_SSH }}
         run: rm -rf .ssh && mkdir ~/.ssh && cd ~/.ssh && ls && echo $SSH_PUBLIC > id_rsa.pub && echo "${{secrets.SSH_PRIVATE}}" > id_rsa && echo $HOST_SSH > known_hosts && chmod 400 ~/.ssh/id_rsa
-#        run: cd .ssh && echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub && echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
-#      - name: Add SSH Key To Known Host
-#        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
-#      - name: Add SSH Key To Known Host
-#        run: echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
       - name: Check Key
         run: gcloud projects list
       - name: Show Ruby Version
         run: ssh -tt sanjay@35.200.199.253 && ruby -v && exit
-
-
-
-#      - name: Reload nginx
-#        run: gcloud compute ssh 35.200.199.253 --command="ruby -v"
-#      - name: Create Database
-#        run: make create-database
-#      - name: Setup Database
-#        run: psql -h localhost -U postgres password=postgres -c 'CREATE DATABASE "postgres_dk";'
-#
-#      - name: Connect to database and create table
-#        run: psql -h localhost -U postgres password=postgres -c 'CREATE TABLE users ( name varchar );'
