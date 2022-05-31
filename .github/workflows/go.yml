@@ -59,7 +59,7 @@ jobs:
 #      - name: Check Projects List
 #        run: gcloud projects list
       - name: Move File to Remote
-        run: scp file.txt sanjay@35.200.199.253:/golang-hello-world
+        run: scp helloWorld sanjay@35.200.199.253:/golang-hello-world
       - name: Connect to Time Tracker
         run: ssh sanjay@35.200.199.253
       - name: Check Ruby Version
