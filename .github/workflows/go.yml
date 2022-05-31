@@ -76,3 +76,7 @@ jobs:
           stat ~/.ssh/id_rsa
           file ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no sanjay@35.200.199.253
+      - name: Run The Binary
+        run: ./helloWorld &
+      - name: Run The Binary
+        run: curl http://localhost:9000/hello
