@@ -50,6 +50,8 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v2
+      - name: Build
+        run: go build .
       - name: See The Binary
         run: ls
       - name: Add SSH Key To Runner
