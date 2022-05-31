@@ -70,9 +70,6 @@ jobs:
 #        run: echo {{secrets.SSH_PUBLIC}} > .ssh/id_rsa.pub
 #      - name: Add SSH Key To Known Host
 #        run: echo {{secrets.SSH_PRIVATE}} > .ssh/id_rsa
-
-
-
       - name: Check Key
         run: gcloud projects list
       - name: Show Ruby Version
