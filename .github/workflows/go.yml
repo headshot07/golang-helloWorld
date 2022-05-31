@@ -58,8 +58,8 @@ jobs:
         with:
           name: my-artifact
           path: ./
-      - name: Build
-        run: go build .
+#      - name: Build
+#        run: go build .
       - name: See The Binary
         run: ls
       - name: Add SSH Key To Runner
