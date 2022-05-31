@@ -69,8 +69,8 @@ jobs:
           echo $SSH_HOST > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_rsa
           ls ~/.ssh
-      - name: Move File to Remote
-        run: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null helloWorld sanjay@35.200.199.253:/home/sanjay/helloWorld
+#      - name: Move File to Remote
+#        run: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null helloWorld sanjay@35.200.199.253:/home/sanjay/helloWorld
       - name: Connect to Instance
         run: |
           stat ~/.ssh/id_rsa
