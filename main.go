@@ -14,10 +14,8 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
-	//"golang.org/x/oauth2/jwt"
-	"helloWorld/config"
+
 	"helloWorld/database"
-	"helloWorld/service"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -270,19 +268,19 @@ func httpServer() {
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "This Is Our Golang Server")
-		handleGoogleCallback(w, r)
+		//handleGoogleCallback(w, r)
 	})
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
-	r.HandleFunc("/upload", service.FileUpload)
-	r.HandleFunc("/google-login", googleOAuth)
-	//r.HandleFunc("/google-callback", googleOAuthCallback)
-	r.HandleFunc("/upload-google", service.FileUploadGoogleDrive)
-	r.HandleFunc("/users/{var}", handleUser)
-	r.HandleFunc("/register", register)
-	r.HandleFunc("/login", login)
-	r.HandleFunc("/dashboard", validateJWT(dashboard))
+	//r.HandleFunc("/upload", service.FileUpload)
+	//r.HandleFunc("/google-login", googleOAuth)
+	////r.HandleFunc("/google-callback", googleOAuthCallback)
+	//r.HandleFunc("/upload-google", service.FileUploadGoogleDrive)
+	//r.HandleFunc("/users/{var}", handleUser)
+	//r.HandleFunc("/register", register)
+	//r.HandleFunc("/login", login)
+	//r.HandleFunc("/dashboard", validateJWT(dashboard))
 	if err := http.ListenAndServe(":8080", r); err != nil {
 		log.Fatal(err)
 	}
@@ -304,13 +302,13 @@ func Multiply(a, b int) int {
 }
 
 func main() {
-	config.InitConfig()
-	config.InitConfiguration()
-	database.ConnectToDatabase()
-	Execute()
-	getAllUsers(database.Get())
-	config.InitializeLogger()
+	//config.InitConfig()
+	//config.InitConfiguration()
+	//database.ConnectToDatabase()
+	//Execute()
+	//getAllUsers(database.Get())
+	//config.InitializeLogger()
 	httpServer()
-	database.CloseDatabase()
-	fmt.Println("Testing...")
+	//database.CloseDatabase()
+	//fmt.Println("Testing...")
 }
