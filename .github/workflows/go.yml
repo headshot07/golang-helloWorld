@@ -75,4 +75,4 @@ jobs:
         run: |
           stat ~/.ssh/id_rsa
           file ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no sanjay@35.200.199.253
+          ssh sanjay@35.200.199.253
