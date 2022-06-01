@@ -268,20 +268,11 @@ func httpServer() {
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "This Is Our Golang Sanjay Server")
-		//handleGoogleCallback(w, r)
 	})
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
-	//r.HandleFunc("/upload", service.FileUpload)
-	//r.HandleFunc("/google-login", googleOAuth)
-	////r.HandleFunc("/google-callback", googleOAuthCallback)
-	//r.HandleFunc("/upload-google", service.FileUploadGoogleDrive)
-	//r.HandleFunc("/users/{var}", handleUser)
-	//r.HandleFunc("/register", register)
-	//r.HandleFunc("/login", login)
-	//r.HandleFunc("/dashboard", validateJWT(dashboard))
-	if err := http.ListenAndServe("0.0.0.0:9000", r); err != nil {
+	if err := http.ListenAndServe("0.0.0.0:80", r); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -302,13 +293,5 @@ func Multiply(a, b int) int {
 }
 
 func main() {
-	//config.InitConfig()
-	//config.InitConfiguration()
-	//database.ConnectToDatabase()
-	//Execute()
-	//getAllUsers(database.Get())
-	//config.InitializeLogger()
 	httpServer()
-	//database.CloseDatabase()
-	//fmt.Println("Testing...")
 }
