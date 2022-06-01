@@ -267,7 +267,7 @@ func dashboard(w http.ResponseWriter, r *http.Request) {
 func httpServer() {
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "This Is Our Golang SanjayArihant Server")
+		fmt.Fprintf(w, "This Is Our Golang Sanjay Server")
 		//handleGoogleCallback(w, r)
 	})
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
