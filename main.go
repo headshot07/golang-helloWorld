@@ -272,7 +272,7 @@ func httpServer() {
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
-	if err := http.ListenAndServe("0.0.0.0:80", r); err != nil {
+	if err := http.ListenAndServe("0.0.0.0:9000", r); err != nil {
 		log.Fatal(err)
 	}
 }
