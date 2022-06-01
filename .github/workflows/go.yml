@@ -58,8 +58,8 @@ jobs:
       - uses: actions/download-artifact@v1
         with:
           name: my-artifact
-#      - name: Build
-#        run: go build .
+      - name: See Files
+        run: ls
       - name: Add SSH Key To Runner
         env:
           SSH_PUBLIC: ${{secrets.SSH_PUBLIC}}
