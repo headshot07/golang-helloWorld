@@ -281,7 +281,7 @@ func httpServer() {
 	//r.HandleFunc("/register", register)
 	//r.HandleFunc("/login", login)
 	//r.HandleFunc("/dashboard", validateJWT(dashboard))
-	if err := http.ListenAndServe(":9000", r); err != nil {
+	if err := http.ListenAndServe("0.0.0.0:9000", r); err != nil {
 		log.Fatal(err)
 	}
 }
