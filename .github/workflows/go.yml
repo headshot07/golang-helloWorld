@@ -94,15 +94,15 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
           ls
-      - name: See all files
+      - name: Remove previous files
         run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "rm -rf config.yml;rm -rf helloWorld;"
-#      - name: Remove previous binary and config.yml file
-#        run: rm -rf config.yml && rm -rf helloWorld
-#      - name: Move Binary to Remote
-#        run: scp -o StrictHostKeyChecking=no helloWorld sanjay@34.93.91.239:/home/sanjay/helloWorld
-#      - name: Move Config to Remote
-#        run: scp -o StrictHostKeyChecking=no config.yml sanjay@34.93.91.239:/home/sanjay/config.yml
-#      - name: See all files
+
+      - name: Move Binary to Remote
+        run: scp -o StrictHostKeyChecking=no helloWorld sanjay@34.93.91.239:/home/sanjay/helloWorld
+      - name: Move Config to Remote
+        run: scp -o StrictHostKeyChecking=no config.yml sanjay@34.93.91.239:/home/sanjay/config.yml
+      - name: change file access mode
+        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "chmod +777 helloWorld;"
 #        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "chmod +777 helloWorld;chmod +777 config.yml;./helloWorld &;curl http://localhost:9000/hello"
 #      - name: Connect to Instance
 #        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
