@@ -95,22 +95,20 @@ jobs:
           ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
           ls
       - name: See all files
-        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "ls;"
+        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "rm -rf config.yml && rm -rf helloWorld;kill $(lsof -t -i:9000);chmod +777 helloWorld;chmod +777 config.yml;./helloWorld &;curl http://localhost:9000/hello"
 #      - name: Remove previous binary and config.yml file
 #        run: rm -rf config.yml && rm -rf helloWorld
-      - name: Kill the previous running binary process
-        run: kill $(lsof -t -i:9000)
-      - name: Exit from instance
-        run: exit
       - name: Move Binary to Remote
         run: scp -o StrictHostKeyChecking=no helloWorld sanjay@34.93.91.239:/home/sanjay/helloWorld
       - name: Move Config to Remote
         run: scp -o StrictHostKeyChecking=no config.yml sanjay@34.93.91.239:/home/sanjay/config.yml
-      - name: Connect to Instance
-        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
-      - name: Change the file permission
-        run: chmod +777 helloWorld
-      - name: Run The Binary
-        run: ./helloWorld &
-      - name: Run The Binary
-        run: curl http://localhost:9000/hello
+      - name: See all files
+        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "chmod +777 helloWorld;chmod +777 config.yml;./helloWorld &;curl http://localhost:9000/hello"
+#      - name: Connect to Instance
+#        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
+#      - name: Change the file permission
+#        run: chmod +777 helloWorld
+#      - name: Run The Binary
+#        run: ./helloWorld &
+#      - name: Run The Binary
+#        run: curl http://localhost:9000/hello
