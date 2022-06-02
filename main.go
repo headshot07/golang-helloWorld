@@ -14,6 +14,7 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
+	"helloWorld/config"
 
 	"helloWorld/database"
 	"io/ioutil"
@@ -293,5 +294,7 @@ func Multiply(a, b int) int {
 }
 
 func main() {
+	config.InitConfig()
+	config.InitConfiguration()
 	httpServer()
 }

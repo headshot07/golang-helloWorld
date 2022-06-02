@@ -82,6 +82,13 @@ jobs:
           stat ~/.ssh/id_rsa
           file ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no sanjay@35.200.199.253
+      - name: Connect to Instance
+        run: |
+          touch config.yml
+          echo "DATABASE:" >> config.yml
+          echo "  USER: \"${{secrets.DB_USER}}\""
+      - name: Cat config
+        run: cat config.yml
       - name: Change the file permission
         run: chmod +777 helloWorld
       - name: Run The Binary
