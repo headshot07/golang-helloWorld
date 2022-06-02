@@ -85,13 +85,15 @@ jobs:
           echo "  PASSWORD: ${{secrets.DB_PASSWORD}}" >> config.yml
           echo "  PORT: ${{secrets.DB_PORT}}" >> config.yml
           echo "LOG:" >> config.yml
-          echo "  LEVEL: ${{secrets.LOG_LEVEL}}" >> config.yml
+          echo "  LEVEL: ${{secrets.LOG_LEVEL}}" >> config.ymlssh username@domain.com 'rm /some/where/some_file.war'
       - name: Cat config
         run: cat config.yml
       - name: Check Files
         run: ls
       - name: Connect to Instance
         run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
+      - name: See all files
+        run: ls
       - name: Remove previous binary and config.yml file
         run: rm -rf config.yml && rm -rf helloWorld
       - name: Kill the previous running binary process
