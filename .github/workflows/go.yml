@@ -85,7 +85,7 @@ jobs:
           echo "  PASSWORD: ${{secrets.DB_PASSWORD}}" >> config.yml
           echo "  PORT: ${{secrets.DB_PORT}}" >> config.yml
           echo "LOG:" >> config.yml
-          echo "  LEVEL: ${{secrets.LOG_LEVEL}}" >> config.ymlssh username@domain.com 'rm /some/where/some_file.war'
+          echo "  LEVEL: ${{secrets.LOG_LEVEL}}" >> config.yml
       - name: Cat config
         run: cat config.yml
       - name: Check Files
