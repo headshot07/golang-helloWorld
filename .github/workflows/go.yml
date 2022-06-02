@@ -93,7 +93,7 @@ jobs:
       - name: Remove previous files
         run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "rm -rf config.yml;rm -rf helloWorld;"
       - name: Kill the process
-        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "pkill -9 helloWorld"
+        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "killall helloWorld || true"
       - name: Move Binary to Remote
         run: scp -o StrictHostKeyChecking=no helloWorld sanjay@34.93.91.239:/home/sanjay/helloWorld
       - name: Move Config to Remote
