@@ -49,6 +49,12 @@ jobs:
           touch config.yml
           echo "DATABASE:" >> config.yml
           echo "  USER: ${{secrets.DB_USER}}" >> config.yml
+          echo "  DB_NAME: ${{secrets.DB_NAME}}" >> config.yml
+          echo "  HOST: ${{secrets.DB_HOST}}" >> config.yml
+          echo "  PASSWORD: ${{secrets.DB_PASSWORD}}" >> config.yml
+          echo "  PORT: ${{secrets.DB_PORT}}" >> config.yml
+          echo "LOG:" >> config.yml
+          echo "  LEVEL: ${{secrets.LOG_LEVEL}}" >> config.yml
       - name: Cat config
         run: cat config.yml
       - uses: actions/upload-artifact@master
