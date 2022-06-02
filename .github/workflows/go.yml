@@ -44,19 +44,6 @@ jobs:
         run: make migrate-up
       - name: Test
         run: go test -v ./...
-      - name: Create Config File
-        run: |
-          touch config.yml
-          echo "DATABASE:" >> config.yml
-          echo "  USER: ${{secrets.DB_USER}}" >> config.yml
-          echo "  DB_NAME: ${{secrets.DB_NAME}}" >> config.yml
-          echo "  HOST: ${{secrets.DB_HOST}}" >> config.yml
-          echo "  PASSWORD: ${{secrets.DB_PASSWORD}}" >> config.yml
-          echo "  PORT: ${{secrets.DB_PORT}}" >> config.yml
-          echo "LOG:" >> config.yml
-          echo "  LEVEL: ${{secrets.LOG_LEVEL}}" >> config.yml
-      - name: Cat config
-        run: cat config.yml
       - uses: actions/upload-artifact@master
         with:
           name: my-artifact
@@ -88,6 +75,19 @@ jobs:
           echo $SSH_HOST > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_rsa
           ls ~/.ssh
+      - name: Create Config File
+        run: |
+          touch config.yml
+          echo "DATABASE:" >> config.yml
+          echo "  USER: ${{secrets.DB_USER}}" >> config.yml
+          echo "  DB_NAME: ${{secrets.DB_NAME}}" >> config.yml
+          echo "  HOST: ${{secrets.DB_HOST}}" >> config.yml
+          echo "  PASSWORD: ${{secrets.DB_PASSWORD}}" >> config.yml
+          echo "  PORT: ${{secrets.DB_PORT}}" >> config.yml
+          echo "LOG:" >> config.yml
+          echo "  LEVEL: ${{secrets.LOG_LEVEL}}" >> config.yml
+      - name: Cat config
+        run: cat config.yml
       - name: Check Files
         run: ls
       - name: Move Binary to Remote
