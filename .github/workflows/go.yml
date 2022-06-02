@@ -48,7 +48,7 @@ jobs:
         run: |
           touch config.yml
           echo "DATABASE:" >> config.yml
-          echo "  USER: \"${{secrets.DB_USER}}\"" >> config.yml
+          echo "  USER: ${{secrets.DB_USER}}" >> config.yml
       - name: Cat config
         run: cat config.yml
       - uses: actions/upload-artifact@master
