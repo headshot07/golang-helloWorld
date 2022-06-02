@@ -102,7 +102,7 @@ jobs:
       - name: Move Config to Remote
         run: scp -o StrictHostKeyChecking=no config.yml sanjay@34.93.91.239:/home/sanjay/config.yml
       - name: change file access mode
-        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "chmod +777 helloWorld;"
+        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "chmod +777 helloWorld;chmod +777 config.yml;"
 #        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239 "chmod +777 helloWorld;chmod +777 config.yml;./helloWorld &;curl http://localhost:9000/hello"
 #      - name: Connect to Instance
 #        run: ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
