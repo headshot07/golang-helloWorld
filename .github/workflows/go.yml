@@ -92,11 +92,11 @@ jobs:
         run: ls
       - name: Connect to Instance
         run: |
-        ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
-        ls
-        rm -rf config.yml && rm -rf helloWorld
-        kill $(lsof -t -i:9000)
-        exit
+          ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
+          ls
+          rm -rf config.yml && rm -rf helloWorld
+          kill $(lsof -t -i:9000)
+          exit
 #      - name: See all files
 #        run: ls
 #      - name: Remove previous binary and config.yml file
