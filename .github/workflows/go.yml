@@ -88,13 +88,17 @@ jobs:
           echo $SSH_HOST > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_rsa
           ls ~/.ssh
-      - name: Move File to Remote
-        run: scp -o StrictHostKeyChecking=no helloWorld sanjay@35.200.199.253:/home/sanjay/helloWorld
+      - name: Check Files
+        run: ls
+      - name: Move Binary to Remote
+        run: scp -o StrictHostKeyChecking=no helloWorld sanjay@34.93.91.239:/home/sanjay/helloWorld
+      - name: Move Config to Remote
+        run: scp -o StrictHostKeyChecking=no config.yml sanjay@34.93.91.239:/home/sanjay/config.yml
       - name: Connect to Instance
         run: |
           stat ~/.ssh/id_rsa
           file ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no sanjay@35.200.199.253
+          ssh -o StrictHostKeyChecking=no sanjay@34.93.91.239
       - name: Change the file permission
         run: chmod +777 helloWorld
       - name: Run The Binary
